@@ -2,23 +2,23 @@
 
 import { useState } from "react";
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-
-  setTimeout(() => {
-    setSubmitted(true);
-  })
-};
-
 const BookEvent = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setTimeout(() => {
+      setSubmitted(true);
+    });
+  };
 
   return (
     <div id="book-event">
       {submitted ? (
         <p className="text-sm">
-          Join {bookings} others in booking your spot for this event.
+          Thank you for signing up!
         </p>
       ) : (
         <form onSubmit={handleSubmit}>
