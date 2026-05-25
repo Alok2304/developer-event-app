@@ -144,8 +144,13 @@ function normalizeTime(timeString) {
     if (period === "AM" && hours === 12) hours = 0;
   }
 
-  if (hours < 0 || hours > 23 || parseInt(minutes) < 0 || parseInt(minutes) > 59) {
-    return new Error("Invalid time values");
+  if (
+    hours < 0 ||
+    hours > 23 ||
+    parseInt(minutes) < 0 ||
+    parseInt(minutes) > 59
+  ) {
+    throw new Error("Invalid time values");
   }
 
   return `${hours.toString().padStart(2, "0")}:${minutes}`;
